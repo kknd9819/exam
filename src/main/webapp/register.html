@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+    <table border="1" cellspacing="0">
+       <tr>
+           <td>用户名</td>
+           <td><input type="text" id="username"></td>
+       </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="text" id="pwd"></td>
+        </tr>
+        <tr>
+            <td>确认密码</td>
+            <td><input type="text" id="pwd2"></td>
+        </tr>
+        <tr>
+            <td>验证码</td>
+            <td><img src="/exam1/verificationCode">
+                <input type="text" id="checkCode">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="sub">提交</button></td>
+        </tr>
+    </table>
+
+    <script src="js/jquery1.12.4.min.js"></script>
+    <script>
+        $(function(){
+
+            //绑定提交按钮的点击事件
+            $("#sub").click(function(){
+
+                $.post('/exam1/register',{
+                    username: $("#username").val(),
+                    pwd:$("#pwd").val(),
+                    checkCode: $("#checkCode").val()
+                },function(data){
+                    if(data.msg === 0){
+                        alert("注册成功");
+                    } else {
+                        alert("注册失败");
+                    }
+                });
+
+            });
+        });
+    </script>
+</body>
+</html>

@@ -34,7 +34,9 @@ public class VerificationServlet extends HttpServlet {
 
         //2.2画边框
         g.setColor(Color.BLUE);
+        Font font = new Font("Arial",Font.BOLD,16);
         g.drawRect(0,0,width-1 ,height-1);
+        g.setFont(font);
 
         //字典
         String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -50,7 +52,6 @@ public class VerificationServlet extends HttpServlet {
         }
 
         HttpSession session = req.getSession();
-        System.out.println(session.getId());
         //将我们随机生成的这四个字符存入session域
         session.setAttribute("checkCode",randomStr.toString().toLowerCase());
 

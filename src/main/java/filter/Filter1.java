@@ -21,7 +21,7 @@ public class Filter1 implements Filter {
         //所有请求字符集统一UTF-8
         req.setCharacterEncoding("UTF-8");
 
-        //添加允许跨域访问设置
+        //添加允许跨域访问设置 CORS
         resp.setHeader("Access-Control-Allow-Origin","*");
         resp.setHeader("Access-Control-Allow-Methods","GET,POST,OPTIONS,DELETE,PUT");
         resp.setHeader("Access-Control-Max-Age","0");

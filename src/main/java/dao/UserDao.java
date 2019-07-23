@@ -8,6 +8,7 @@ public interface UserDao {
 
     List<User> findAll();
     int findCount();
+
     List<User> findPage(int pageNumber,int pageSize);
 
     int insert(User user);
